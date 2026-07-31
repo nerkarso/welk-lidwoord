@@ -1,0 +1,60 @@
+{
+	"version": "7",
+	"dialect": "sqlite",
+	"id": "ca585272-18b7-4723-9dbf-550dd6e3408d",
+	"prevIds": ["00000000-0000-0000-0000-000000000000"],
+	"ddl": [
+		{
+			"name": "history",
+			"entityType": "tables"
+		},
+		{
+			"type": "integer",
+			"notNull": false,
+			"autoincrement": true,
+			"default": null,
+			"generated": null,
+			"name": "id",
+			"entityType": "columns",
+			"table": "history"
+		},
+		{
+			"type": "text",
+			"notNull": true,
+			"autoincrement": false,
+			"default": null,
+			"generated": null,
+			"name": "word",
+			"entityType": "columns",
+			"table": "history"
+		},
+		{
+			"type": "text",
+			"notNull": false,
+			"autoincrement": false,
+			"default": null,
+			"generated": null,
+			"name": "result",
+			"entityType": "columns",
+			"table": "history"
+		},
+		{
+			"type": "integer",
+			"notNull": true,
+			"autoincrement": false,
+			"default": "(unixepoch())",
+			"generated": null,
+			"name": "created_at",
+			"entityType": "columns",
+			"table": "history"
+		},
+		{
+			"columns": ["id"],
+			"nameExplicit": false,
+			"name": "history_pk",
+			"table": "history",
+			"entityType": "pks"
+		}
+	],
+	"renames": []
+}
