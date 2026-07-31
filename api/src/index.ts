@@ -43,7 +43,7 @@ app.get('/search/:word', async (c) => {
 serve(
 	{
 		fetch: app.fetch,
-		port: 5000,
+		port: parseInt(process.env.PORT || '5000', 10),
 	},
 	(info) => {
 		console.log(`Server is running on http://localhost:${info.port}`);

@@ -13,7 +13,7 @@ export default function Command(props: Props) {
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await fetch(
-				`http://localhost:8006/search/${props.arguments.word}`,
+				`http://localhost:8806/search/${props.arguments.word}`,
 			);
 			const data = await response.text();
 			setResult(data);
