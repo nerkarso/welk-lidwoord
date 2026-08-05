@@ -17,17 +17,24 @@
 		{
 			"name": "lidwoord",
 			"title": "Lidwoord",
-			"subtitle": "Welk Lidwoord",
-			"description": "Zoek op welk lidwoord.",
+			"subtitle": "De of het woord",
+			"description": "Search for the correct article.",
 			"mode": "view",
 			"arguments": [
 				{
 					"name": "word",
-					"placeholder": "woord",
+					"placeholder": "word",
 					"type": "text",
-					"required": false
+					"required": true
 				}
 			]
+		},
+		{
+			"name": "history",
+			"title": "History",
+			"subtitle": "See previous searched articles",
+			"description": "View your previous search results.",
+			"mode": "view"
 		}
 	],
 	"tools": [],
