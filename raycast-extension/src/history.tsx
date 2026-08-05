@@ -6,7 +6,7 @@ export default function Command() {
   const { history, isLoading, pagination, updateHistory, deleteHistory, purgeHistory } = useHistory();
 
   return (
-    <List isLoading={isLoading} pagination={pagination} searchBarPlaceholder="Search in history...">
+    <List isLoading={isLoading} pagination={pagination} searchBarPlaceholder="Search history...">
       {history?.map((item) => (
         <HistoryListItem
           key={item.id}

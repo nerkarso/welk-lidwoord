@@ -2,7 +2,7 @@
 	"$schema": "https://www.raycast.com/schemas/extension.json",
 	"name": "welk-lidwoord",
 	"title": "Welk Lidwoord",
-	"description": "Zoek op welk lidwoord.",
+	"description": "Quickly find the correct article for a noun.",
 	"icon": "icon.png",
 	"author": "nerkarso",
 	"platforms": [
@@ -31,9 +31,9 @@
 		},
 		{
 			"name": "history",
-			"title": "History",
-			"subtitle": "See previous searched articles",
-			"description": "View your previous search results.",
+			"title": "Geschiedenis",
+			"subtitle": "Lidwoord geschiedenis",
+			"description": "View your searched articles.",
 			"mode": "view"
 		}
 	],
