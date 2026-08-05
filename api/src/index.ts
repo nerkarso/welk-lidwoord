@@ -1,44 +1,25 @@
 import { serve } from '@hono/node-server';
-import * as cheerio from 'cheerio';
 import { Hono } from 'hono';
-import { addHistory, getHistory, listHistory } from './queries.js';
+import { HistoryRepository } from './repositories/history.js';
+import { registerDocumentationRoutes } from './routes/documentation.js';
+import { registerHistoryRoutes } from './routes/history.js';
+import { registerSearchRoutes } from './routes/search.js';
+import {
+	WelklidwoordSource,
+	WordSearchService,
+} from './services/word-search.js';
 
 const app = new Hono();
+const historyRepository = new HistoryRepository();
+const welklidwoordSource = new WelklidwoordSource();
+const wordSearchService = new WordSearchService(
+	historyRepository,
+	welklidwoordSource,
+);
 
-app.get('/history', async (c) => {
-	try {
-		const records = await listHistory();
-		return c.json(records);
-	} catch (error) {
-		return c.json({ error: error }, 500);
-	}
-});
-
-app.get('/search/:word', async (c) => {
-	const { word } = c.req.param();
-	const cached = await getHistory(word);
-
-	if (cached) {
-		c.header('x-cache', 'HIT');
-		return c.text(cached.result ?? 'Nothing found');
-	}
-
-	let output = 'Nothing found';
-
-	try {
-		const res = await fetch(`https://www.welklidwoord.nl/${word}`);
-		const html = await res.text();
-
-		const $ = cheerio.load(html);
-		output = $('#content > h2.nieuwH2').text().trim();
-	} catch (error) {
-		return c.json({ error: error }, 500);
-	}
-
-	await addHistory(word, output);
-	c.header('x-cache', 'MISS');
-	return c.text(output);
-});
+registerHistoryRoutes(app, historyRepository);
+registerSearchRoutes(app, wordSearchService);
+registerDocumentationRoutes(app);
 
 serve(
 	{
