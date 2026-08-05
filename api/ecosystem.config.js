@@ -1,6 +1,6 @@
 export const apps = [
 	{
-		name: 'welklidwoord-api',
+		name: 'welk-lidwoord-api',
 		script: 'dist/index.js',
 		output: './logs/out.log',
 		error: './logs/err.log',
