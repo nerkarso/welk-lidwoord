@@ -13,6 +13,16 @@
 		"Web"
 	],
 	"license": "MIT",
+	"preferences": [
+		{
+			"name": "apiUrl",
+			"title": "API URL",
+			"description": "Base URL of the Welk Lidwoord API.",
+			"type": "textfield",
+			"default": "http://localhost:8806",
+			"required": false
+		}
+	],
 	"commands": [
 		{
 			"name": "lidwoord",
